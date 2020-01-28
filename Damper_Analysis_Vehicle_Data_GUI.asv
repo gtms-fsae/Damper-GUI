@@ -213,190 +213,190 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
             dataObj.rr_high_speed_bump_speedins=dataObj.rr_speed_compression(dataObj.rr_speed_compression>F);
             dataObj.number_low_speed_bump_rr_raw=numel(dataObj.rr_low_speed_bump_speedins);
             dataObj.number_high_speed_bump_rr_raw=numel(dataObj.rr_high_speed_bump_speedins);
-            dataObj.percent_low_speed_bump_rr_raw=(dataObj.number_low_speed_bump_rr_raw/dataObj.number_of_speed_samples)*100;
-            dataObj.percent_high_speed_bump_rr_raw=(dataObj.number_high_speed_bump_rr_raw/dataObj.number_of_speed_samples)*100;
+            dataObj.percent_low_speed_bump_rr_raw=(number_low_speed_bump_rr_raw/dataObj.number_of_speed_samples)*100;
+            dataObj.percent_high_speed_bump_rr_raw=(number_high_speed_bump_rr_raw/number_of_speed_samples)*100;
         %Rear Left Bump
-            dataObj.rl_low_speed_bump_speedins=dataObj.rl_speed_compression(dataObj.rl_speed_compression<=F);
-            dataObj.rl_high_speed_bump_speedins=dataObj.rl_speed_compression(dataObj.rl_speed_compression>F);
-            dataObj.number_low_speed_bump_rl_raw= numel(dataObj.rl_low_speed_bump_speedins);
-            dataObj.number_high_speed_bump_rl_raw= numel(dataObj.rl_high_speed_bump_speedins);
-            dataObj.percent_low_speed_bump_rl_raw=(dataObj.number_low_speed_bump_rl_raw/dataObj.number_of_speed_samples)*100;
-            dataObj.percent_high_speed_bump_rl_raw=(dataObj.number_high_speed_bump_rl_raw/dataObj.number_of_speed_samples)*100;
+            rl_low_speed_bump_speedins=rl_speed_compression(rl_speed_compression<=F);
+            rl_high_speed_bump_speedins=rl_speed_compression(rl_speed_compression>F);
+            number_low_speed_bump_rl_raw= numel(rl_low_speed_bump_speedins);
+            number_high_speed_bump_rl_raw= numel(rl_high_speed_bump_speedins);
+            percent_low_speed_bump_rl_raw=(number_low_speed_bump_rl_raw/number_of_speed_samples)*100;
+            percent_high_speed_bump_rl_raw=(number_high_speed_bump_rl_raw/number_of_speed_samples)*100;
         %Rear Right Rebound
-            dataObj.rr_low_speed_rebound_speedins=dataObj.rr_speed_rebound(dataObj.rr_speed_rebound>=G);
-            dataObj.rr_high_speed_rebound_speedins=dataObj.rr_speed_rebound(dataObj.rr_speed_rebound<G);
-            dataObj.number_low_speed_rebound_rr_raw=numel(dataObj.rr_low_speed_rebound_speedins);
-            dataObj.number_high_speed_rebound_rr_raw=numel(dataObj.rr_high_speed_rebound_speedins);
-            dataObj.percent_low_speed_rebound_rr_raw=(dataObj.number_low_speed_rebound_rr_raw/dataObj.number_of_speed_samples)*100;
-            dataObj.percent_high_speed_rebound_rr_raw=(dataObj.number_high_speed_rebound_rr_raw/dataObj.number_of_speed_samples)*100;
+            rr_low_speed_rebound_speedins=rr_speed_rebound(rr_speed_rebound>=G);
+            rr_high_speed_rebound_speedins=rr_speed_rebound(rr_speed_rebound<G);
+            number_low_speed_rebound_rr_raw=numel(rr_low_speed_rebound_speedins);
+            number_high_speed_rebound_rr_raw=numel(rr_high_speed_rebound_speedins);
+            percent_low_speed_rebound_rr_raw=(number_low_speed_rebound_rr_raw/number_of_speed_samples)*100;
+            percent_high_speed_rebound_rr_raw=(number_high_speed_rebound_rr_raw/number_of_speed_samples)*100;
         %Rear Left Rebound
-            dataObj.rl_low_speed_rebound_speedins=dataObj.rl_speed_rebound(dataObj.rl_speed_rebound>=G);
-            dataObj.rl_high_speed_rebound_speedins=dataObj.rl_speed_rebound(dataObj.rl_speed_rebound<G);
-            dataObj.number_low_speed_rebound_rl_raw= numel(dataObj.rl_low_speed_rebound_speedins);
-            dataObj.number_high_speed_rebound_rl_raw= numel(dataObj.rl_high_speed_rebound_speedins);
-            dataObj.percent_low_speed_rebound_rl_raw=(dataObj.number_low_speed_rebound_rl_raw/dataObj.number_of_speed_samples)*100;
-            dataObj.percent_high_speed_rebound_rl_raw=(dataObj.number_high_speed_rebound_rl_raw/dataObj.number_of_speed_samples)*100;
+            rl_low_speed_rebound_speedins=rl_speed_rebound(rl_speed_rebound>=G);
+            rl_high_speed_rebound_speedins=rl_speed_rebound(rl_speed_rebound<G);
+            number_low_speed_rebound_rl_raw= numel(rl_low_speed_rebound_speedins);
+            number_high_speed_rebound_rl_raw= numel(rl_high_speed_rebound_speedins);
+            percent_low_speed_rebound_rl_raw=(number_low_speed_rebound_rl_raw/number_of_speed_samples)*100;
+            percent_high_speed_rebound_rl_raw=(number_high_speed_rebound_rl_raw/number_of_speed_samples)*100;
 
 %% Front Damper Shaft Speed Histograms (Raw)
-% figure('Name','Front Damper Histograms (Raw)','NumberTitle','off');
-% subplot(2,2,[1 3]);
-% z=.1; % bin width
-% x =dam_fl_speedins;
-% y =dam_fr_speedins;
-% h1 = histogram(x,'Normalization','probability','EdgeColor','r');
-% h1.BinWidth=z;
-% hold on
-% h2 = histogram(y,'Normalization','probability','EdgeColor','b');
-% h2.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Front Left & Right Damper Velocity')
-% legend('FL Damper','FR Damper')
-% 
-% %creating the front left damper veloctiy histogram
-% subplot(2,2,2);    
-% h3 = histogram(dam_fl_speedins,'Normalization','probability');
-% h3.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Front Left Damper Velocity')
-% %plot(conv(h3.BinEdges, [0.5 0.5], 'valid'), h3.BinCounts)
-% 
-% %creating the front right damper veloctiy histogram
-% subplot(2,2,4);    
-% h4=histogram(dam_fr_speedins,'Normalization','probability');
-% h4.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Front Right Damper Velocity')
-% 
-% hold off
-% 
-% %% Front Damper Shaft Speed Histograms (Trimmed)
-% %This is trimming the data at 1.5 times the interquratile range (IQR) above the
-% %upper quartile and 1.5 times the IQR below the lower quartile.
-% figure('Name','Front Damper Histograms (Trimmed)','NumberTitle','off');
-% m= (dam_fr_speedins>lower_quartile_fr_dam-1.5*iqr_damper_fr) & (dam_fr_speedins<upper_quartile_fr_dam+1.5*iqr_damper_fr);
-% n= (dam_fl_speedins>lower_quartile_fl_dam-1.5*iqr_damper_fl) & (dam_fl_speedins<upper_quartile_fl_dam+1.5*iqr_damper_fl);
-% subplot(2,2,[1 3]);
-% h5 = histogram(dam_fl_speedins(n),'Normalization','probability','EdgeColor','r');
-% h5.BinWidth=z;
-% hold on
-% h6 = histogram(dam_fr_speedins(m),'Normalization','probability','EdgeColor','b');
-% h6.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Front Left & Right Damper Velocity')
-% legend('FL Damper','FR Damper')
-% 
-% %creating the front left damper veloctiy histogram
-% subplot(2,2,2);    
-% h7 = histogram(dam_fl_speedins(n),'Normalization','probability');
-% h7.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Front Left Damper Velocity')
-% 
-% %creating the front right damper veloctiy histogram
-% subplot(2,2,4);    
-% h8=histogram(dam_fr_speedins(m),'Normalization','probability');
-% h8.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Front Right Damper Velocity')
-% hold off
-% 
-% %Plotting Statistics Table Front Dampers
-% Corner={'FR' ; 'FL'};
-% Percent_Full_Extension=[fr_percent_full_extension; fl_percent_full_extension];
-% Front_Skewness=[skewness_fr_speed; skewness_fl_speed];
-% Front_Kurtosis=[kurtosis_fr_speed; kurtosis_fl_speed];
-% Front_Median=[fr_damper_median_speed; fl_damper_median_speed];
-% Front_AVG=[fr_avg_speed; fl_avg_speed];
-% Front_Percent_High_Speed_Bump=[percent_high_speed_bump_fr_raw; percent_high_speed_bump_fl_raw];
-% Front_Percent_Low_Speed_Bump=[percent_low_speed_bump_fr_raw; percent_low_speed_bump_fl_raw];
-% Front_Percent_High_Speed_Rebound=[percent_high_speed_rebound_fr_raw; percent_high_speed_rebound_fl_raw];
-% Front_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_fr_raw; percent_low_speed_rebound_fl_raw];
-% T_Speed_Front = table(Percent_Full_Extension, Front_Skewness,Front_Kurtosis,Front_Median,Front_AVG,Front_Percent_High_Speed_Bump,Front_Percent_Low_Speed_Bump,Front_Percent_High_Speed_Rebound,Front_Percent_Low_Speed_Rebound,'RowNames',Corner);
-% 
-% %% Rear Damper Shaft Speed Histograms (Raw)
-% figure('Name','Rear Damper Histograms (Raw)','NumberTitle','off');
-% subplot(2,2,[1 3]);
-% r =dam_rl_speedins;
-% s =dam_rr_speedins;
-% h9 = histogram(r,'Normalization','probability','EdgeColor','r');
-% h9.BinWidth=z;
-% hold on
-% h10 = histogram(s,'Normalization','probability','EdgeColor','b');
-% h10.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Rear Left & Right Damper Velocity')
-% legend('RL Damper','RR Damper')
-% 
-% %creating the rear left damper veloctiy histogram
-% subplot(2,2,2);    
-% h11 = histogram(dam_rl_speedins,'Normalization','probability');
-% h11.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Rear Left Damper Velocity')
-% 
-% %creating the rear right damper veloctiy histogram
-% subplot(2,2,4);    
-% h12=histogram(dam_rr_speedins,'Normalization','probability');
-% h12.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Rear Right Damper Velocity')
-% 
-% hold off
-% 
-% %% Rear Damper Shaft Speed Histograms (Trimmed)
-% %This is trimming the data at 1.5 times the interquratile range (IQR) above the
-% %upper quartile and 1.5 times the IQR below the lower quartile.
-% figure('Name','Rear Damper Histograms (Trimmed)','NumberTitle','off');
-% o= (dam_rr_speedins>lower_quartile_rr_dam-1.5*iqr_damper_rr) & (dam_rr_speedins<upper_quartile_rr_dam+1.5*iqr_damper_rr);
-% p= (dam_rl_speedins>lower_quartile_rl_dam-1.5*iqr_damper_rl) & (dam_rl_speedins<upper_quartile_rl_dam+1.5*iqr_damper_rl);
-% subplot(2,2,[1 3]);
-% h13 = histogram(dam_rl_speedins(p),'Normalization','probability','EdgeColor','r');
-% h13.BinWidth=z;
-% hold on
-% h14 = histogram(dam_rr_speedins(o),'Normalization','probability','EdgeColor','b');
-% h14.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Rear Left & Right Damper Velocity')
-% legend('RL Damper','RR Damper')
-% 
-% %creating the rear left damper veloctiy histogram
-% subplot(2,2,2);    
-% h15 = histogram(dam_rl_speedins(p),'Normalization','probability');
-% h15.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Rear Left Damper Velocity')
-% 
-% %creating the rear right damper veloctiy histogram
-% subplot(2,2,4);    
-% h16=histogram(dam_rr_speedins(o),'Normalization','probability');
-% h16.BinWidth=z;
-% xlabel('Shaft Velocity (In/s)')
-% ylabel('Frequency')
-% title('Rear Right Damper Velocity')
-% hold off
-% 
-% %Plotting Statistics Table Rear Dampers
-% Corner={'RR' ; 'RL'};
-% Percent_Full_Extension=[rr_percent_full_extension; rl_percent_full_extension];
-% Rear_Skewness=[skewness_rr_speed; skewness_rl_speed];
-% Rear_Kurtosis=[kurtosis_rr_speed; kurtosis_rl_speed];
-% Rear_Median=[rr_damper_median_speed; rl_damper_median_speed];
-% Rear_AVG=[rr_avg_speed; rl_avg_speed];
-% Rear_Percent_High_Speed_Bump=[percent_high_speed_bump_rr_raw; percent_high_speed_bump_rl_raw];
-% Rear_Percent_Low_Speed_Bump=[percent_low_speed_bump_rr_raw; percent_low_speed_bump_rl_raw];
-% Rear_Percent_High_Speed_Rebound=[percent_high_speed_rebound_rr_raw; percent_high_speed_rebound_rl_raw];
-% Rear_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_rr_raw; percent_low_speed_rebound_rl_raw];
-% T_Speed_Rear= table(Percent_Full_Extension, Rear_Skewness, Rear_Kurtosis,Rear_Median,Rear_AVG,Rear_Percent_High_Speed_Bump,Rear_Percent_Low_Speed_Bump,Rear_Percent_High_Speed_Rebound,Rear_Percent_Low_Speed_Rebound,'RowNames',Corner);
+figure('Name','Front Damper Histograms (Raw)','NumberTitle','off');
+subplot(2,2,[1 3]);
+z=.1; % bin width
+x =dam_fl_speedins;
+y =dam_fr_speedins;
+h1 = histogram(x,'Normalization','probability','EdgeColor','r');
+h1.BinWidth=z;
+hold on
+h2 = histogram(y,'Normalization','probability','EdgeColor','b');
+h2.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Front Left & Right Damper Velocity')
+legend('FL Damper','FR Damper')
+
+%creating the front left damper veloctiy histogram
+subplot(2,2,2);    
+h3 = histogram(dam_fl_speedins,'Normalization','probability');
+h3.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Front Left Damper Velocity')
+%plot(conv(h3.BinEdges, [0.5 0.5], 'valid'), h3.BinCounts)
+
+%creating the front right damper veloctiy histogram
+subplot(2,2,4);    
+h4=histogram(dam_fr_speedins,'Normalization','probability');
+h4.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Front Right Damper Velocity')
+
+hold off
+
+%% Front Damper Shaft Speed Histograms (Trimmed)
+%This is trimming the data at 1.5 times the interquratile range (IQR) above the
+%upper quartile and 1.5 times the IQR below the lower quartile.
+figure('Name','Front Damper Histograms (Trimmed)','NumberTitle','off');
+m= (dam_fr_speedins>lower_quartile_fr_dam-1.5*iqr_damper_fr) & (dam_fr_speedins<upper_quartile_fr_dam+1.5*iqr_damper_fr);
+n= (dam_fl_speedins>lower_quartile_fl_dam-1.5*iqr_damper_fl) & (dam_fl_speedins<upper_quartile_fl_dam+1.5*iqr_damper_fl);
+subplot(2,2,[1 3]);
+h5 = histogram(dam_fl_speedins(n),'Normalization','probability','EdgeColor','r');
+h5.BinWidth=z;
+hold on
+h6 = histogram(dam_fr_speedins(m),'Normalization','probability','EdgeColor','b');
+h6.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Front Left & Right Damper Velocity')
+legend('FL Damper','FR Damper')
+
+%creating the front left damper veloctiy histogram
+subplot(2,2,2);    
+h7 = histogram(dam_fl_speedins(n),'Normalization','probability');
+h7.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Front Left Damper Velocity')
+
+%creating the front right damper veloctiy histogram
+subplot(2,2,4);    
+h8=histogram(dam_fr_speedins(m),'Normalization','probability');
+h8.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Front Right Damper Velocity')
+hold off
+
+%Plotting Statistics Table Front Dampers
+Corner={'FR' ; 'FL'};
+Percent_Full_Extension=[fr_percent_full_extension; fl_percent_full_extension];
+Front_Skewness=[skewness_fr_speed; skewness_fl_speed];
+Front_Kurtosis=[kurtosis_fr_speed; kurtosis_fl_speed];
+Front_Median=[fr_damper_median_speed; fl_damper_median_speed];
+Front_AVG=[fr_avg_speed; fl_avg_speed];
+Front_Percent_High_Speed_Bump=[percent_high_speed_bump_fr_raw; percent_high_speed_bump_fl_raw];
+Front_Percent_Low_Speed_Bump=[percent_low_speed_bump_fr_raw; percent_low_speed_bump_fl_raw];
+Front_Percent_High_Speed_Rebound=[percent_high_speed_rebound_fr_raw; percent_high_speed_rebound_fl_raw];
+Front_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_fr_raw; percent_low_speed_rebound_fl_raw];
+T_Speed_Front = table(Percent_Full_Extension, Front_Skewness,Front_Kurtosis,Front_Median,Front_AVG,Front_Percent_High_Speed_Bump,Front_Percent_Low_Speed_Bump,Front_Percent_High_Speed_Rebound,Front_Percent_Low_Speed_Rebound,'RowNames',Corner);
+
+%% Rear Damper Shaft Speed Histograms (Raw)
+figure('Name','Rear Damper Histograms (Raw)','NumberTitle','off');
+subplot(2,2,[1 3]);
+r =dam_rl_speedins;
+s =dam_rr_speedins;
+h9 = histogram(r,'Normalization','probability','EdgeColor','r');
+h9.BinWidth=z;
+hold on
+h10 = histogram(s,'Normalization','probability','EdgeColor','b');
+h10.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Rear Left & Right Damper Velocity')
+legend('RL Damper','RR Damper')
+
+%creating the rear left damper veloctiy histogram
+subplot(2,2,2);    
+h11 = histogram(dam_rl_speedins,'Normalization','probability');
+h11.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Rear Left Damper Velocity')
+
+%creating the rear right damper veloctiy histogram
+subplot(2,2,4);    
+h12=histogram(dam_rr_speedins,'Normalization','probability');
+h12.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Rear Right Damper Velocity')
+
+hold off
+
+%% Rear Damper Shaft Speed Histograms (Trimmed)
+%This is trimming the data at 1.5 times the interquratile range (IQR) above the
+%upper quartile and 1.5 times the IQR below the lower quartile.
+figure('Name','Rear Damper Histograms (Trimmed)','NumberTitle','off');
+o= (dam_rr_speedins>lower_quartile_rr_dam-1.5*iqr_damper_rr) & (dam_rr_speedins<upper_quartile_rr_dam+1.5*iqr_damper_rr);
+p= (dam_rl_speedins>lower_quartile_rl_dam-1.5*iqr_damper_rl) & (dam_rl_speedins<upper_quartile_rl_dam+1.5*iqr_damper_rl);
+subplot(2,2,[1 3]);
+h13 = histogram(dam_rl_speedins(p),'Normalization','probability','EdgeColor','r');
+h13.BinWidth=z;
+hold on
+h14 = histogram(dam_rr_speedins(o),'Normalization','probability','EdgeColor','b');
+h14.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Rear Left & Right Damper Velocity')
+legend('RL Damper','RR Damper')
+
+%creating the rear left damper veloctiy histogram
+subplot(2,2,2);    
+h15 = histogram(dam_rl_speedins(p),'Normalization','probability');
+h15.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Rear Left Damper Velocity')
+
+%creating the rear right damper veloctiy histogram
+subplot(2,2,4);    
+h16=histogram(dam_rr_speedins(o),'Normalization','probability');
+h16.BinWidth=z;
+xlabel('Shaft Velocity (In/s)')
+ylabel('Frequency')
+title('Rear Right Damper Velocity')
+hold off
+
+%Plotting Statistics Table Rear Dampers
+Corner={'RR' ; 'RL'};
+Percent_Full_Extension=[rr_percent_full_extension; rl_percent_full_extension];
+Rear_Skewness=[skewness_rr_speed; skewness_rl_speed];
+Rear_Kurtosis=[kurtosis_rr_speed; kurtosis_rl_speed];
+Rear_Median=[rr_damper_median_speed; rl_damper_median_speed];
+Rear_AVG=[rr_avg_speed; rl_avg_speed];
+Rear_Percent_High_Speed_Bump=[percent_high_speed_bump_rr_raw; percent_high_speed_bump_rl_raw];
+Rear_Percent_Low_Speed_Bump=[percent_low_speed_bump_rr_raw; percent_low_speed_bump_rl_raw];
+Rear_Percent_High_Speed_Rebound=[percent_high_speed_rebound_rr_raw; percent_high_speed_rebound_rl_raw];
+Rear_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_rr_raw; percent_low_speed_rebound_rl_raw];
+T_Speed_Rear= table(Percent_Full_Extension, Rear_Skewness, Rear_Kurtosis,Rear_Median,Rear_AVG,Rear_Percent_High_Speed_Bump,Rear_Percent_Low_Speed_Bump,Rear_Percent_High_Speed_Rebound,Rear_Percent_Low_Speed_Rebound,'RowNames',Corner);
 
 end
