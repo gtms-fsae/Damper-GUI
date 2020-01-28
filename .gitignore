@@ -3,3 +3,7 @@
 
 # .mat files
 *.mat
+
+# excel
+*.xls
+*xlsx
