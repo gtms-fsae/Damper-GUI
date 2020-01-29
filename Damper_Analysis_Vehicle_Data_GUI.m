@@ -56,12 +56,12 @@ clear opts tbl
 %% Full Extension Percent
 %calculating how long the dampers are at full extension/ the tire is
 %leaving the ground
-dataObj.number_of_samples=numel(dam_frin);
+dataObj.number_of_samples=numel(dataObj.dam_frin);
     %Front Dampers
-    dataObj.fr_full_extension=dataObj.dam_fl_speedinsdam_frin(dam_frin>3.6);
-    dataObj.fl_full_extension=dataObj.dam_fl_speedinsdam_flin(dam_flin>3.6);
-    dataObj.count_fr_extended=numel(dataObj.dam_fl_speedinsfr_full_extension);
-    dataObj.count_fl_extended=numel(dataObj.dam_fl_speedinsfl_full_extension);
+    dataObj.fr_full_extension=dataObj.dam_frin(dataObj.dam_frin>3.6);
+    dataObj.fl_full_extension=dataObj.dam_flin(dataObj.dam_flin>3.6);
+    dataObj.count_fr_extended=numel(dataObj.fr_full_extension);
+    dataObj.count_fl_extended=numel(dataObj.fl_full_extension);
     dataObj.fr_percent_full_extension=(dataObj.count_fr_extended/dataObj.number_of_samples)*100;
     dataObj.fl_percent_full_extension=(dataObj.count_fl_extended/dataObj.number_of_samples)*100;
     %Rear Dampers
@@ -113,11 +113,11 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
     %it is moderately skewed. If it is between -0.5 and 0.5 then it is
     %approximately symmetric (https://brownmath.com/stat/shape.htm)
         %Front Dampers
-        dataObj.skewness_fr_speed=dataObj.skewness(dataObj.dam_fr_speedins);
-        dataObj.skewness_fl_speed=dataObj.skewness(dataObj.dam_fl_speedins);
+        dataObj.skewness_fr_speed=skewness(dataObj.dam_fr_speedins);
+        dataObj.skewness_fl_speed=skewness(dataObj.dam_fl_speedins);
         %Rear Dampers
-        dataObj.skewness_rr_speed=dataObj.skewness(dataObj.dam_rr_speedins);
-        dataObj.skewness_rl_speed=dataObj.skewness(dataObj.dam_rl_speedins);
+        dataObj.skewness_rr_speed=skewness(dataObj.dam_rr_speedins);
+        dataObj.skewness_rl_speed=skewness(dataObj.dam_rl_speedins);
     %Kurtosis
         %Front Dampers
         dataObj.kurtosis_fr_speed=kurtosis(dataObj.dam_fr_speedins);
@@ -200,8 +200,8 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
             dataObj.percent_low_speed_rebound_fr_raw=(dataObj.number_low_speed_rebound_fr_raw/dataObj.number_of_speed_samples)*100;
             dataObj.percent_high_speed_rebound_fr_raw=(dataObj.number_high_speed_rebound_fr_raw/dataObj.number_of_speed_samples)*100;
         %Front Left Rebound
-            dataObj.fl_low_speed_rebound_speedins=dataObj.fl_speed_rebound(fl_speed_rebound>=G);
-            dataObj.fl_high_speed_rebound_speedins=dataObj.fl_speed_rebound(fl_speed_rebound<G);
+            dataObj.fl_low_speed_rebound_speedins=dataObj.fl_speed_rebound(dataObj.fl_speed_rebound>=G);
+            dataObj.fl_high_speed_rebound_speedins=dataObj.fl_speed_rebound(dataObj.fl_speed_rebound<G);
             dataObj.number_low_speed_rebound_fl_raw= numel(dataObj.fl_low_speed_rebound_speedins);
             dataObj.number_high_speed_rebound_fl_raw= numel(dataObj.fl_high_speed_rebound_speedins);
             dataObj.percent_low_speed_rebound_fl_raw=(dataObj.number_low_speed_rebound_fl_raw/dataObj.number_of_speed_samples)*100;
