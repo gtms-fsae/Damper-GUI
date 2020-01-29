@@ -274,7 +274,7 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
 % 
 % hold off
 % 
-% %% Front Damper Shaft Speed Histograms (Trimmed)
+%% Front Damper Shaft Speed Histograms (Trimmed)
 % %This is trimming the data at 1.5 times the interquratile range (IQR) above the
 % %upper quartile and 1.5 times the IQR below the lower quartile.
 % figure('Name','Front Damper Histograms (Trimmed)','NumberTitle','off');
@@ -321,7 +321,7 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
 % Front_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_fr_raw; percent_low_speed_rebound_fl_raw];
 % T_Speed_Front = table(Percent_Full_Extension, Front_Skewness,Front_Kurtosis,Front_Median,Front_AVG,Front_Percent_High_Speed_Bump,Front_Percent_Low_Speed_Bump,Front_Percent_High_Speed_Rebound,Front_Percent_Low_Speed_Rebound,'RowNames',Corner);
 % 
-% %% Rear Damper Shaft Speed Histograms (Raw)
+%% Rear Damper Shaft Speed Histograms (Raw)
 % figure('Name','Rear Damper Histograms (Raw)','NumberTitle','off');
 % subplot(2,2,[1 3]);
 % r =dam_rl_speedins;
@@ -354,7 +354,7 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
 % 
 % hold off
 % 
-% %% Rear Damper Shaft Speed Histograms (Trimmed)
+%% Rear Damper Shaft Speed Histograms (Trimmed)
 % %This is trimming the data at 1.5 times the interquratile range (IQR) above the
 % %upper quartile and 1.5 times the IQR below the lower quartile.
 % figure('Name','Rear Damper Histograms (Trimmed)','NumberTitle','off');
