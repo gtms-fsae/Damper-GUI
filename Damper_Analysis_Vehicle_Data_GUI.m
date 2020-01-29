@@ -12,10 +12,12 @@ dataObj = struct;
 
 %% Setup the Import Options
 opts = spreadsheetImportOptions("NumVariables", 22);
-
+%% dustin's test section
+% [num, text, raw] = xlsread(fileName);
+%%
 % Specify sheet and range
 opts.Sheet = "Sheet1";
-opts.DataRange = "A7:V53727";
+opts.DataRange = "A7";
 
 % Specify column names and types
 opts.VariableNames = ["times1", "udam_flV", "udam_frV", "dam_flin", "dam_frin", "dam_fl_speedins", "dam_fr_speedins", "udam_rlV", "udam_rrV", "dam_rlin", "dam_rrin", "dam_rl_speedins", "dam_rr_speedins", "accxgLongitudinal", "accygLateral", "acczgVertical", "steer", "vwheel_flkmh", "vwheel_frkmh", "vwheel_rlkmh", "vwheel_rrkmh", "yaw"];
@@ -176,8 +178,8 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
     %Front Dampers
         %Front Right Bump
             %This count applies to all four corners
-            F=3.5 %in/s
-            G=-3.5 %in/s
+            F=3.5; %in/s
+            G=-3.5; %in/s
             dataObj.number_of_speed_samples=numel(dataObj.dam_fr_speedins);
             dataObj.fr_low_speed_bump_speedins=dataObj.fr_speed_compression(dataObj.fr_speed_compression<=F);
             dataObj.fr_high_speed_bump_speedins=dataObj.fr_speed_compression(dataObj.fr_speed_compression>F);
