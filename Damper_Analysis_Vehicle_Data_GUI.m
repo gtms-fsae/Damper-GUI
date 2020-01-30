@@ -308,7 +308,7 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
 % title('Front Right Damper Velocity')
 % hold off
 % 
-% %Plotting Statistics Table Front Dampers
+%% Plotting Statistics Table Front Dampers
 % Corner={'FR' ; 'FL'};
 % Percent_Full_Extension=[fr_percent_full_extension; fl_percent_full_extension];
 % Front_Skewness=[skewness_fr_speed; skewness_fl_speed];
