@@ -21,7 +21,7 @@ switch type
         %         legend('FL Damper','FR Damper')
         
         %creating the front left damper veloctiy histogram
-        title(ax,'Front Damper Velocity');
+        title(ax,'Damper Velocity');
         xlabel(ax,'Shaft Velocity (In/s)')
         ylabel(ax,'Frequency')
         hold(ax,'on')
