@@ -310,15 +310,16 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
 % 
 %% Plotting Statistics Table Front Dampers
 % Corner={'FR' ; 'FL'};
-% Percent_Full_Extension=[fr_percent_full_extension; fl_percent_full_extension];
-% Front_Skewness=[skewness_fr_speed; skewness_fl_speed];
-% Front_Kurtosis=[kurtosis_fr_speed; kurtosis_fl_speed];
-% Front_Median=[fr_damper_median_speed; fl_damper_median_speed];
-% Front_AVG=[fr_avg_speed; fl_avg_speed];
-% Front_Percent_High_Speed_Bump=[percent_high_speed_bump_fr_raw; percent_high_speed_bump_fl_raw];
-% Front_Percent_Low_Speed_Bump=[percent_low_speed_bump_fr_raw; percent_low_speed_bump_fl_raw];
-% Front_Percent_High_Speed_Rebound=[percent_high_speed_rebound_fr_raw; percent_high_speed_rebound_fl_raw];
-% Front_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_fr_raw; percent_low_speed_rebound_fl_raw];
+dataObj.tableData = struct;
+dataObj.tableData.front.Percent_Full_Extension=[dataObj.fr_percent_full_extension; dataObj.fl_percent_full_extension]';
+dataObj.tableData.front.Front_Skewness=[dataObj.skewness_fr_speed; dataObj.skewness_fl_speed]';
+dataObj.tableData.front.Front_Kurtosis=[dataObj.kurtosis_fr_speed; dataObj.kurtosis_fl_speed]';
+dataObj.tableData.front.Front_Median=[dataObj.fr_damper_median_speed; dataObj.fl_damper_median_speed]';
+dataObj.tableData.front.Front_AVG=[dataObj.fr_avg_speed; dataObj.fl_avg_speed]';
+dataObj.tableData.front.Front_Percent_High_Speed_Bump=[dataObj.percent_high_speed_bump_fr_raw; dataObj.percent_high_speed_bump_fl_raw]';
+dataObj.tableData.front.Front_Percent_Low_Speed_Bump=[dataObj.percent_low_speed_bump_fr_raw; dataObj.percent_low_speed_bump_fl_raw]';
+dataObj.tableData.front.Front_Percent_High_Speed_Rebound=[dataObj.percent_high_speed_rebound_fr_raw; dataObj.percent_high_speed_rebound_fl_raw]';
+dataObj.tableData.front.Front_Percent_Low_Speed_Rebound=[dataObj.percent_low_speed_rebound_fr_raw; dataObj.percent_low_speed_rebound_fl_raw]';
 % T_Speed_Front = table(Percent_Full_Extension, Front_Skewness,Front_Kurtosis,Front_Median,Front_AVG,Front_Percent_High_Speed_Bump,Front_Percent_Low_Speed_Bump,Front_Percent_High_Speed_Rebound,Front_Percent_Low_Speed_Rebound,'RowNames',Corner);
 % 
 %% Rear Damper Shaft Speed Histograms (Raw)
@@ -388,17 +389,17 @@ dataObj.rl_speed_rebound=dataObj.dam_rl_speedins(dataObj.dam_rl_speedins<0);
 % title('Rear Right Damper Velocity')
 % hold off
 % 
-% %Plotting Statistics Table Rear Dampers
+%% Plotting Statistics Table Rear Dampers
 % Corner={'RR' ; 'RL'};
-% Percent_Full_Extension=[rr_percent_full_extension; rl_percent_full_extension];
-% Rear_Skewness=[skewness_rr_speed; skewness_rl_speed];
-% Rear_Kurtosis=[kurtosis_rr_speed; kurtosis_rl_speed];
-% Rear_Median=[rr_damper_median_speed; rl_damper_median_speed];
-% Rear_AVG=[rr_avg_speed; rl_avg_speed];
-% Rear_Percent_High_Speed_Bump=[percent_high_speed_bump_rr_raw; percent_high_speed_bump_rl_raw];
-% Rear_Percent_Low_Speed_Bump=[percent_low_speed_bump_rr_raw; percent_low_speed_bump_rl_raw];
-% Rear_Percent_High_Speed_Rebound=[percent_high_speed_rebound_rr_raw; percent_high_speed_rebound_rl_raw];
-% Rear_Percent_Low_Speed_Rebound=[percent_low_speed_rebound_rr_raw; percent_low_speed_rebound_rl_raw];
+dataObj.tableData.rear.Percent_Full_Extension=[dataObj.rr_percent_full_extension; dataObj.rl_percent_full_extension]';
+dataObj.tableData.rear.Rear_Skewness=[dataObj.skewness_rr_speed; dataObj.skewness_rl_speed]';
+dataObj.tableData.rear.Rear_Kurtosis=[dataObj.kurtosis_rr_speed; dataObj.kurtosis_rl_speed]';
+dataObj.tableData.rear.Rear_Median=[dataObj.rr_damper_median_speed; dataObj.rl_damper_median_speed]';
+dataObj.tableData.rear.Rear_AVG=[dataObj.rr_avg_speed; dataObj.rl_avg_speed]';
+dataObj.tableData.rear.Rear_Percent_High_Speed_Bump=[dataObj.percent_high_speed_bump_rr_raw; dataObj.percent_high_speed_bump_rl_raw]';
+dataObj.tableData.rear.Rear_Percent_Low_Speed_Bump=[dataObj.percent_low_speed_bump_rr_raw; dataObj.percent_low_speed_bump_rl_raw]';
+dataObj.tableData.rear.Rear_Percent_High_Speed_Rebound=[dataObj.percent_high_speed_rebound_rr_raw; dataObj.percent_high_speed_rebound_rl_raw]';
+dataObj.tableData.rear.Rear_Percent_Low_Speed_Rebound=[dataObj.percent_low_speed_rebound_rr_raw; dataObj.percent_low_speed_rebound_rl_raw]';
 % T_Speed_Rear= table(Percent_Full_Extension, Rear_Skewness, Rear_Kurtosis,Rear_Median,Rear_AVG,Rear_Percent_High_Speed_Bump,Rear_Percent_Low_Speed_Bump,Rear_Percent_High_Speed_Rebound,Rear_Percent_Low_Speed_Rebound,'RowNames',Corner);
 
 end

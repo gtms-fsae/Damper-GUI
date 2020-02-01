@@ -109,4 +109,15 @@ switch type
         legend(ax,'Show','location','best')
         hold(ax,'off')
 end
+
+%% Refreshing the table
+app.FrontDamperTable.ColumnName = {'FL','FR'};
+app.FrontDamperTable.RowName = fieldnames(dataObj.tableData.front);
+frontData = zeros(length(fieldnames(dataObj.tableData.front)),2);
+parfor i = 1:length(frontData(:,1))
+    
+end
+app.FrontDamperTable.Data = dataObj.tableData.front;
+app.RearDamperTable.ColumnName = {'RL','RR'};
+app.RearDamperTable.RowName = fieldnames(dataObj.tableData.rear);
 end
